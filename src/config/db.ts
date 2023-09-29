@@ -2,6 +2,7 @@
 import { IConnection, IORMMapper } from "./interface/db.interface"
 import * as dotenv from "dotenv"
 import { Users } from "../entities/user.entity"
+import { Product } from "../entities/product.entity"
 
 dotenv.config()
 
@@ -26,9 +27,9 @@ const mapper: IORMMapper = {
         username: process.env.DB_USERNAME as string,
         password: process.env.DB_PASSWORD as string,
         database: process.env.DB_DATABASE as string,
-        synchronize: false, 
+        synchronize: true, 
         logging: false,
-        entities: [Users],
+        entities: [Users, Product],
         migrations: [],
         migrationsTableName: "migration_table",
         subscribers: [],

@@ -3,6 +3,7 @@ import * as express from "express"
 
 interface IUser {
     id: string;
+    password: string
 }
 
 

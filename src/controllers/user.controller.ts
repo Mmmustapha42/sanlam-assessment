@@ -27,11 +27,12 @@ export class UserController {
 
     static async getAssetsAndInvestments(req: Request, res:Response) {
         const userId = req.params.userId
+       
     try {
 
       console.log(userId)
-    const userRepository = AppDataSource.getRepository(Users);
-    const user = await userRepository.findOne({
+      const userRepository = AppDataSource.getRepository(Users);
+      const user = await userRepository.findOne({
         where: { id: userId }
       });
     if (!user) {

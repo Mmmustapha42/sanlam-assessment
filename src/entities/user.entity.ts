@@ -1,4 +1,5 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Product } from './product.entity';
 
 
 @Entity({ name: 'users' })
@@ -21,9 +22,9 @@ export class Users {
   @Column({type: "varchar"})
   password: string
 
-  
-  @Column({type:"varchar"})
-  products: string;
+  @OneToMany(() => Product, product => product.user)
+  products: Product[]
+
 
   @Column({type:"varchar"})
   amount_paid: string

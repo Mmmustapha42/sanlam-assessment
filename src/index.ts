@@ -1,5 +1,4 @@
 import express, { Application } from "express";
-//import helmet from "helmet";
 import cors from "cors";
 import router from "./routes";
 import { AppDataSource } from "./data-source";
@@ -11,7 +10,6 @@ AppDataSource.initialize().then(async () => {
     const app: Application = express();
    
     app.use(express.json());
-    //app.use(helmet());
     app.use(morgan('dev'))
     app.use(cors());
     app.use(express.urlencoded({ extended: false }));

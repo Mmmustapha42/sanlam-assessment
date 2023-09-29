@@ -4,6 +4,11 @@ import { AppDataSource } from "../data-source";
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
+interface Iuser {
+  id: string
+  password: string
+}
+
 export class UserMiddlewares {
     static async VerifyToken(req:Request, res:Response, next:NextFunction){
     
@@ -13,7 +18,7 @@ export class UserMiddlewares {
         return res.status(401).json({ message: 'Authentication failed: No token provided' });
         }
         try {
-        const decodedToken = jwt.verify(token, secretKey) as {id: string};
+        const decodedToken = jwt.verify(token, secretKey) as Iuser;
          req['user'] = decodedToken
         next();
       } catch (error) {
