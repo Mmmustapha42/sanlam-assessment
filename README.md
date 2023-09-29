@@ -1,5 +1,7 @@
 # sanlam-assessment
 
+# to start the application, run npm install, then npm start. the app runs on localhost:3000
+
 # env keys
 
 DB_CONNECTION=mysql
